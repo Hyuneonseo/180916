@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="utf-8">
+<head>
+	<title></title>
+	<style>
+		body{background: black;}
+		#redSquare{width: 100px; height: 100px; background: orange; margin: auto; transition: all 1s;}
+		#whiteTri{width: 0px; height: 0px; border-top: 30px solid transparent; border-right: 300px solid transparent; border-left:300px solid transparent; border-bottom: 500px solid yellow; margin: auto; transition: all 1s;}
+		#blueCir{width: 700px; height: 700px; border-radius: 50%; background: blue; margin-top: -1000px; margin-left: 20px; transition: all 1s;}
+		#transBut{width: 200px; height: 40px; text-align: center; line-height: 40px; margin: auto; margin-right: 280px; background: none;  margin-top: 10px; cursor: pointer; color: green;}
+		#transBut2{width: 200px; height: 40px; text-align: center; line-height: 40px; margin: auto;  background: none;  margin-top: 10px; cursor: pointer; color: white;}
+		#transBut3{width: 200px; height: 40px; text-align: center; line-height: 40px; margin: left;  background: none;  margin-top: 10px; margin-left: 20px; cursor: pointer; color: white;}
+		#flower{width: 700px; margin: auto; height: 500px; background: yellow;}
+		p{text-align:left; color: brown; position: absolute; top: 100px;}
+	</style>
+</head>
+<body>
+	<div id="redSquare">
+		<img src="man.gif" id="flower">
+	</div>
+	<div id="transBut">1. 정확히 "클릭"을 누르면</div>
+	<div id="whiteTri"></div>
+	<div id="transBut2">2. 여기도 누르면</div>
+	<div id="blueCir"></div>
+	<div id="transBut3">3. 순서를맞춰서</div>
+	<audio id="testMusic">
+		<source src="music.mp3" type="audio/mpeg">
+	</audio>
+	<p id="demo"></p>
+	<p id="demo2"></p>
+
+	<script>
+
+		var toggle = "off";
+
+		flower.onclick = function(){
+			if (toggle == "off") {
+				flower.setAttribute("src","woman.gif");
+				toggle = "on";
+				testMusic.play();
+			}else {
+				flower.setAttribute("src","man.gif");
+				toggle = "off";
+				testMusic.pause();
+			}
+			
+		}
+
+		transBut.onclick = function(){
+			if (toggle == "off"){
+				redSquare.style.background = "green";
+				redSquare.style.width = "1300px";
+				redSquare.style.height = "1000px";
+				redSquare.style.borderRadius = "50%"
+				redSquare.innerHTML = "신기하네~";
+				redSquare.style.textAlign = "center";
+				redSquare.style.lineHeight = "1000px";
+				toggle = "on"
+				testMusic.pause();
+			}else {
+				redSquare.style.background = "yellow";
+				redSquare.style.width = "300px";
+				redSquare.style.height = "1300px";
+				redSquare.style.borderRadius = "50%"
+				redSquare.innerHTML = "신기하네~";
+				redSquare.style.textAlign = "center";
+				redSquare.style.lineHeight = "1000px";
+				toggle = "off"
+				testMusic.play();
+			}
+			
+		}
+
+		transBut2.onclick = function(){
+			if (toggle == "off"){
+				whiteTri.style.background = "transparent";
+				whiteTri.style.width = "0px";
+				whiteTri.style.height = "0px";
+				whiteTri.style.borderBottom = "500px;"
+				toggle = "on"
+				testMusic.pause();
+			}else {
+				whiteTri.style.background = "red";
+				whiteTri.style.width = "700px";
+				whiteTri.style.height = "130px";
+				whiteTri.style.borderBottom = "500px;"
+				toggle = "off"
+				testMusic.play();
+			}
+			
+		}
+
+		transBut3.onclick = function(){
+			if (toggle == "off"){
+				blueCir.style.width = "700px";
+				blueCir.style.height = "700px";
+				blueCir.style.borderRadius = "50%";
+				blueCir.style.background = "blue";
+				toggle = "on"
+				testMusic.pause();
+			}else {
+				blueCir.style.width = "1px";
+				blueCir.style.height = "1000px";
+				blueCir.style.borderRadius = "0%";
+				blueCir.style.background = "orange";
+				toggle = "off"
+				testMusic.play();
+			}
+			
+		}
+
+		var x = document.getElementById("transBut");
+		x.addEventListener("mouseover", myFunction);
+		x.addEventListener("click", mySecondFunction);
+		x.addEventListener("mouseout", myThirdFunction);
+
+		function myFunction() {
+		    document.getElementById("demo").innerHTML += "초콜릿<br>";
+		}
+
+		function mySecondFunction() {
+		    document.getElementById("demo").innerHTML += "만나다<br>";
+		}
+
+		function myThirdFunction() {
+		    document.getElementById("demo").innerHTML += "우유<br>";
+		}
+
+		var x = document.getElementById("transBut2");
+		x.addEventListener("mouseover", myFunction);
+		x.addEventListener("click", mySecondFunction);
+		x.addEventListener("mouseout", myThirdFunction);
+
+		function myFunction() {
+		    document.getElementById("demo2").innerHTML += "안녕하세요<br>";
+		}
+
+		function mySecondFunction() {
+		    document.getElementById("demo2").innerHTML += "저녁<br>";
+		}
+
+		function myThirdFunction() {
+		    document.getElementById("demo2").innerHTML += "먹자!!!<br>";
+		}
+
+		var x = document.getElementById("transBut3");
+		x.addEventListener("mouseover", myFunction);
+		x.addEventListener("click", mySecondFunction);
+		x.addEventListener("mouseout", myThirdFunction);
+
+		function myFunction() {
+		    document.getElementById("demo2").innerHTML += "안녕하세요<br>";
+		}
+
+		function mySecondFunction() {
+		    document.getElementById("demo2").innerHTML += "저녁<br>";
+		}
+
+		function myThirdFunction() {
+		    document.getElementById("demo2").innerHTML += "먹자!!!<br>";
+		}
+	</script>
+</body>
+</html>
